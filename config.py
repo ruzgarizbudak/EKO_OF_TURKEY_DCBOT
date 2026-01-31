@@ -1,0 +1,2 @@
+DATABASE = 'degisim.db'
+TOKEN = ''
