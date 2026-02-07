@@ -16,7 +16,8 @@ class DB_Manager:
         with conn:
             cur = conn.cursor()
             cur.execute(sql, data)
-            return cur.fetchone()  
+            return cur.fetchall() 
+ 
         
 
     def yil_toplam(self, date):
@@ -27,6 +28,18 @@ class DB_Manager:
             return row[0]
         else:
             return None
+
+
+    def aylik_veri(self, year):
+        sql = """
+        SELECT Date, CPI_Monthly_Change
+        FROM eko
+        WHERE substr(Date, 4, 4) = ?
+        ORDER BY substr(Date, 1, 2)
+        """
+        return self.__select_data(sql, (str(year),))
+
+
 
 
 
