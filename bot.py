@@ -17,7 +17,7 @@ bot = commands.Bot(command_prefix='/', intents=intents)
 
 @bot.event
 async def on_ready():
-    print('Bot hazir')
+    print('Merhaba ben istediginiz')
 
 # Sunucuya biri girince karşılama
 @bot.event
@@ -30,6 +30,11 @@ async def on_member_join(member):
             f"`/toplam` yazarak enflasyon hesaplayabilir,\n"
             f"`/oyun` ile mini oyun oynayabilirsin 🎮"
         )
+
+@bot.command()
+async def about(ctx):
+    await ctx.send("🤖 Bot Adı: EnflasyonBot/n📊 Ne yapar?/nTürkiye’ye ait aylık ve yıllık enflasyon verilerini analiz eder,/ngrafikler üretir ve yıl içi toplam (birikimli) enflasyonu hesaplar./n🧠 Öne çıkan özellikler/n📈 Yıllık aylık enflasyon grafiklerini oluşturur/n📊 Yıl içi toplam (bileşik) enflasyonu gösterir/n🗓️ Ay-Yıl bazlı sorgulama yapabilir/n⚡ Hızlı ve sade sonuçlar/n 🛠️ Kullanılan Teknolojiler/nPython/nSQLite/ndiscord.py/nmatplotlib/n📌 Komutlar/n!toplam → Ay-Yıl girerek yıl içi toplam enflasyonu öğren/n!grafik 2021 → Seçilen yılın aylık enflasyon grafiğini getir/n!yardim → Komut listesini gösterir")
+
 
 # TOPLAM KOMUTU (DEĞİŞTİRİLMEDİ)
 @bot.command()
